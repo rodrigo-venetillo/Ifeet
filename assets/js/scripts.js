@@ -2,7 +2,6 @@
   'use strict'
 
   const forms = document.querySelectorAll('.needs-validation')
-  console.log(forms)
 
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
