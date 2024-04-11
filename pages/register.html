@@ -24,46 +24,46 @@
   <div
     class="d-flex flex-md-column align-items-center justify-content-center m-auto my-0 div-container position-relative">
     <header class="d-flex justify-content-center position-absolute top-0 py-4">
-      <img src="../assets/images/logo.png" alt="Logo do IFeet">
+      <img class="logo" src="../assets/images/logo.png" alt="Logo do IFeet">
     </header>
     <main class="d-flex w-100">
 
-      <form method="post" class="form-signin w-100 px-4 m-auto needs-validation" novalidate>
+      <form class="form-signin w-100 px-4 m-auto needs-validation" novalidate>
         <h1 class="mb-5 fw-normal text-center">Registrar</h1>
         <div class="col-md-6 d-flex w-100 gap-3 my-3">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingName" name="name" placeholder="Nome" required>
-            <label for="floatingName">Nome</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nome" required>
+            <label for="name">Nome</label>
             <div class="invalid-feedback">
               Informe seu nome!
             </div>
           </div>
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingSurname" name="surname" placeholder="Sobrenome" required>
-            <label for="floatingSurname">Sobrenome</label>
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="Sobrenome" required>
+            <label for="surname">Sobrenome</label>
             <div class="invalid-feedback">
               Informe seu sobrenome!
             </div>
           </div>
         </div>
         <div class="form-floating my-3">
-          <input type="email" class="form-control" id="floatingEmail" name="email" placeholder="nome@examplo.com" required>
-          <label for="floatingEmail">E-mail</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="nome@examplo.com" required>
+          <label for="email">E-mail</label>
           <div class="invalid-feedback">
             Informe seu e-mail!
           </div>
         </div>
         <div class="form-floating my-3">
-          <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Senha" minlength="8" required>
-          <label for="floatingPassword">Senha</label>
-          <div class="invalid-feedback">
+          <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required>
+          <label for="password">Senha</label>
+          <div id="passw" class="invalid-feedback">
             Informe sua senha!
           </div>
         </div>
         <div class="form-floating my-3">
-          <input type="password" class="form-control" id="floatingConfirmPassword" name="confirm_password" placeholder="Confirmar senha" required>
-          <label for="floatingConfirmPassword">Confirmar senha</label>
-          <div class="invalid-feedback">
+          <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Confirmar senha" required>
+          <label for="confirm-password">Confirmar senha</label>
+          <div id="confirm" class="invalid-feedback">
             Confirme sua senha!
           </div>
         </div>
@@ -72,7 +72,8 @@
       </form>
     </main>
   </div>
-  <script src="../assets/js/scripts.js"></script>
+  <!-- <script src="../assets/js/scripts.js"></script> -->
+  <script src="../assets/js/validation.js"></script>
 </body>
 
 </html>

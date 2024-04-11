@@ -9,6 +9,11 @@ body {
   min-height: 844px;
 }
 
+.logo{
+  width: 180px;
+  -webkit-user-drag: none;
+}
+
 .bg-yellow {
   background-color: #ffde59 !important;
   border: #ffde59 !important;
@@ -47,4 +52,13 @@ h1{
 
 a{
   text-decoration: none !important;
+}
+
+.confirm-pass{
+  border-color: var(--bs-form-invalid-border-color) !important; 
+    padding-right: calc(1.5em + .75rem) !important; 
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/></svg>") !important; 
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
 }
