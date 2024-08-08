@@ -33,8 +33,8 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `sobrenome` int(50) NOT NULL
+  `nome` varchar(100) NOT NULL,
+  `sobrenome` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`email`, `senha`, `id`, `nome`, `sobrenome`) VALUES
-('testetesteteste@gmail.com', '1234', 37, 'teste', 0);
+('teste@gmail.com', '1234', 37, 'teste', 'teste');
 
 --
 -- Índices para tabelas despejadas

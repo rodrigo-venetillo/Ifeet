@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
   //print_r($_POST['email']);
   //print_r($_POST['senha']);
 
-  //salvando os dados em variaveis  
+  //salvando os dados em variaveis
   $email = $_POST["email"];
   $password = $_POST["password"];
   //enviando para o BD
