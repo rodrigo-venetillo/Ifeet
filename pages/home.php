@@ -17,10 +17,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
-    defer></script>
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer>
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script src="../assets/js/svg-inject.min.js"></script>
 
   <title>IFeet</title>
   <link rel="stylesheet" href="../assets/css/style.css">
@@ -30,10 +31,8 @@
   <div
     class="d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container gap-4 position-relative">
 
-    <header class="w-100 d-flex justify-content-between align-items-center pt-4 px-4">
-      <i class="fa-solid fa-gear"></i>
+    <header class="w-100 d-flex justify-content-center align-items-center pt-4 px-4">
       <img class="logo" src="../assets/images/logo.png" alt="Logo do IFeet">
-      <i class="fa-solid fa-message"></i>
     </header>
 
     <main id="cards-container" class="d-flex w-100 h-100 position-relative">
@@ -187,7 +186,8 @@
         </div>
       </section>
     </main>
-    <section id="buttons-actions" class="w-100 h-auto my-2 pb-3 d-flex align-items-start justify-content-around sticky-bottom">
+
+    <section id="buttons-actions" class="w-100 h-auto my-2 d-flex align-items-start justify-content-around sticky-bottom">
       <div id="button-dislike" class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-xmark d-flex align-items-center justify-content-center"></i>
       </div>
@@ -198,7 +198,15 @@
         <i class="fa-solid fa-thumbs-up d-flex align-items-center justify-content-center"></i>
       </div>
     </section>
+
+    <footer class="w-100 d-flex align-items-center justify-content-around gap-3 p-2">
+      <img src="../assets/images/shoe.svg" onload="SVGInject(this)" alt="" />
+      <img src="../assets/images/chat.svg" onload="SVGInject(this)" alt="" />
+      <img src="../assets/images/user.svg" onload="SVGInject(this)" alt="" />
+    </footer>
   </div>
+
+
   <script src="../assets/js/drag.js"></script>
 
 </body>

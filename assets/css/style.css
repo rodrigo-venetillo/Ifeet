@@ -106,21 +106,6 @@ i {
 
 /****** HOME *******/
 
-header i.fa-gear,
-header i.fa-message {
-  width: 1.8rem;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #fd741f;
-  transition: .2s ease-in-out;
-  transform: rotateY(180deg);
-}
-
-header i.fa-gear:hover,
-header i.fa-message:hover {
-  color: #ce4f00;
-}
-
 #cards-container {
   height: 100%;
   max-height: 32rem;
@@ -207,6 +192,17 @@ header i.fa-message:hover {
 #buttons-actions #button-dislike{
   background-color: #bb0303;
   font-size: 50px;
+}
+
+footer{
+  background-color: #fd741f;
+  border-radius: 8px 8px 0 0;
+}
+
+footer svg {
+  width: 1.8rem;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px){
