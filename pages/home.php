@@ -188,15 +188,15 @@
     </main>
 
     <section id="buttons-actions" class="w-100 h-auto my-2 d-flex align-items-start justify-content-around sticky-bottom">
-      <div id="button-dislike" class="d-flex align-items-center justify-content-center">
+      <button id="button-dislike" class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-xmark d-flex align-items-center justify-content-center"></i>
-      </div>
-      <div id="button-superlike" class="d-flex align-items-center justify-content-center">
+      </button>
+      <button id="button-superlike" class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-star d-flex align-items-center justify-content-center"></i>
-      </div>
-      <div id="button-like" class="d-flex align-items-center justify-content-center">
+      </button>
+      <button id="button-like" class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-thumbs-up d-flex align-items-center justify-content-center"></i>
-      </div>
+      </button>
     </section>
 
     <footer class="w-100 d-flex align-items-center justify-content-around gap-3 p-2">
