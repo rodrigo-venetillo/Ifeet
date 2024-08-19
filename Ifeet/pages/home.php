@@ -27,9 +27,8 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body class="d-flex bg-light m-0">
-  <div
-    class="d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container gap-4 position-relative">
+<body class="d-flex bg-dark m-0">
+  <div class="bg-light d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container gap-4 position-relative">
 
     <header class="w-100 d-flex justify-content-center align-items-center pt-4 px-4">
       <img class="logo" src="../assets/images/logo.png" alt="Logo do IFeet">

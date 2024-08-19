@@ -13,7 +13,7 @@ body {
 
 .div-container {
   width: 100%;
-  max-width: 390px;
+  max-width: 450px;
   min-width: 300px;
   max-height: 100vh;
 }
@@ -221,6 +221,7 @@ i {
 .item > p{
   text-align: center;
   padding: .5rem;
+  font-weight: bold;
 }
 
 .item > div{

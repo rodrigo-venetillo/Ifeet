@@ -40,36 +40,32 @@
         <div class="row">
           <div class="col-4">
             <div class="item">
-              <div><img src="../assets/images/logo.png" alt=""></div>
-              <p>Nome</p>
+              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
+              <p>Nike Air</p>
             </div>
           </div>
-
           <div class="col-4">
             <div class="item">
-              <div><img src="" alt=""></div>
-              <p>Nome</p>
+              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
+              <p>Nike Air</p>
             </div>
           </div>
-
           <div class="col-4">
             <div class="item">
-              <div><img src="" alt=""></div>
-              <p>Nome</p>
+              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
+              <p>Nike Air</p>
             </div>
           </div>
-
           <div class="col-4">
             <div class="item">
-              <div><img src="" alt=""></div>
-              <p>Nome</p>
+              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
+              <p>Nike Air</p>
             </div>
           </div>
-
           <div class="col-4">
             <div class="item">
-              <div><img src="" alt=""></div>
-              <p>Nome</p>
+              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
+              <p>Nike Air</p>
             </div>
           </div>
           
