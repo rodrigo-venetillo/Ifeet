@@ -48,9 +48,16 @@ img,
 button,
 a {
   -webkit-user-drag: none;
+  outline: none;
+  border: none;
 }
 
-button:focus,
+input,
+textarea,
+select {
+  border: 1px solid transparent ;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -171,7 +178,7 @@ i {
   cursor: pointer;
   color: white;
   transition: .2s ease-in-out;
-  border: none;
+  
 }
 
 #buttons-actions > button:hover{
@@ -195,11 +202,6 @@ i {
   font-size: 50px;
 }
 
-#button-plus{
-  /* position: relative; */
-  /* padding: .5rem 0; */
-}
-
 #button-plus > button{
   background-color: #ce580e;
   font-size: 40px;
@@ -210,11 +212,8 @@ i {
   cursor: pointer;
   color: white;
   transition: .2s ease-in-out;
-  border: none;
   margin: 1rem;
 
-  /* position: fixed; */
-  /* right: 0; */
   bottom: 3rem;
 }
 
@@ -246,6 +245,41 @@ footer svg {
   width: 1.8rem;
   font-size: 1.8rem;
   cursor: pointer;
+}
+
+/* MATCH */
+.overlay-match{
+  background-color: rgba(0, 0, 0, .9);
+  color: #fff;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s ease-in-out;
+  transition-delay: .3s;
+}
+
+.active{
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay-match .button-close{
+  background-color: transparent;
+  color: #ff0000;
+  font-size: 1.6rem;
+}
+
+.overlay-match .description-match h2{
+  font-size: 4rem;
+}
+
+.description-match .form-match input{
+  outline: none;
+}
+
+.description-match .form-match button{
+  color: #fff;
+  background-color: #fd741f;
 }
 
 @media screen and (max-width: 768px){

@@ -18,7 +18,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer>
-  </script>
+    </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   <script src="../assets/js/svg-inject.min.js"></script>
@@ -28,7 +28,8 @@
 </head>
 
 <body class="d-flex bg-dark m-0">
-  <div class="bg-light d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container gap-4 position-relative">
+  <div
+    class="bg-light d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container gap-4 position-relative">
 
     <header class="w-100 d-flex justify-content-center align-items-center pt-4 px-4">
       <img class="logo" src="../assets/images/logo.png" alt="Logo do IFeet">
@@ -186,14 +187,15 @@
       </section>
     </main>
 
-    <section id="buttons-actions" class="w-100 h-auto my-2 d-flex align-items-start justify-content-around sticky-bottom">
+    <section id="buttons-actions"
+      class="w-100 h-auto my-2 d-flex align-items-start justify-content-around sticky-bottom z-1">
       <button id="button-dislike" class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-xmark d-flex align-items-center justify-content-center"></i>
       </button>
       <button id="button-superlike" class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-star d-flex align-items-center justify-content-center"></i>
       </button>
-      <button id="button-like" class="d-flex align-items-center justify-content-center">
+      <button id="button-like" onclick="showMatch()" class="d-flex align-items-center justify-content-center">
         <i class="fa-solid fa-thumbs-up d-flex align-items-center justify-content-center"></i>
       </button>
     </section>
@@ -203,10 +205,31 @@
       <img src="../assets/images/chat.svg" onload="SVGInject(this)" alt="" />
       <img src="../assets/images/user.svg" onload="SVGInject(this)" alt="" />
     </footer>
+
+    <div class="overlay-match position-absolute top-0 left-0 w-100 h-100 z-3">
+      <div class="w-100 d-flex align-items-center justify-content-end p-2">
+        <button onclick="closeMatch()" class="button-close px-2 rounded-5"><i class="fa-solid fa-x"></i></button>
+      </div>
+      <div class="description-match d-flex flex-column align-items-center justify-content-center w-100 p-2 gap-4">
+        <div class="text-center">
+          <h2>Match</h2>
+          <h5>Rodrigo também curtiu seu tênis!</h5>
+        </div>
+        <img class="w-100"
+          src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp"
+          alt="">
+
+        <form class="form-match w-100 d-flex align-content-center justify-content-center gap-2">
+          <input type="text" class="w-100 p-2 rounded-1" name="" id="" placeholder="Envie uma mensagem" />
+          <button class="p-2 rounded-1" type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
   </div>
 
 
   <script src="../assets/js/drag.js"></script>
+  <script src="../assets/js/scripts.js"></script>
 
 </body>
 
