@@ -44,6 +44,7 @@ body {
   border: #fd741f !important;
 }
 
+
 img,
 button,
 a {
@@ -241,6 +242,10 @@ footer{
   border-radius: 8px 8px 0 0;
 }
 
+footer a{
+  padding: 0;
+}
+
 footer svg {
   width: 1.8rem;
   font-size: 1.8rem;
@@ -290,4 +295,34 @@ footer svg {
   #buttons-actions > div:active{
     filter: brightness(1.2);
   }
+}
+
+/* CHATS */
+ul li.conversation-item{
+  /* list-style-type: none;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f8f9fa;
+  border-radius: 8px; */
+  cursor: pointer;
+  width: 100%;
+  max-width: 100%;
+  /* transition: background-color 0.3s; */
+}
+
+.conversation-item img{
+  width: 50px;
+  height: 50px;
+}
+
+.conversation-item .conversation-item-wrapper{
+  width: 100%;
+  max-width: 280px;
+}
+
+.conversation-item .conversation-text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }

@@ -217,9 +217,9 @@ if (!isset($_SESSION['user_id'])) {
     </section>
 
     <footer class="w-100 d-flex align-items-center justify-content-around gap-3 p-2">
-      <img src="../assets/images/shoe.svg" onload="SVGInject(this)" alt="" />
-      <img src="../assets/images/chat.svg" onload="SVGInject(this)" alt="" />
-      <img src="../assets/images/user.svg" onload="SVGInject(this)" alt="" />
+      <a href="home.php"><img src="../assets/images/shoe.svg" onload="SVGInject(this)" alt="" /></a>
+      <a href="chats.php"><img src="../assets/images/chat.svg" onload="SVGInject(this)" alt="" /></a>
+      <a href="configShoes.php"><img src="../assets/images/user.svg" onload="SVGInject(this)" alt="" /></a>
     </footer>
 
     <div class="overlay-match position-absolute top-0 left-0 w-100 h-100 z-3">
