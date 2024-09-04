@@ -1,29 +1,3 @@
-<?php
-
-//conexao
-include_once '../assets/php/connection.php';
-
-
-
-if (isset($_POST['submit'])) {
-
-  //print_r($_POST['email']);
-  //print_r($_POST['senha']);
-
-  //salvando os dados em variaveis  
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-  //enviando para o BD
-  $resultado = mysqli_query($conexao, "INSERT INTO usuarios(email,senha) VALUES ('$email','$password')");
-}
-
-
-
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -52,7 +26,7 @@ if (isset($_POST['submit'])) {
       <img class="logo" src="../assets/images/logo.png" alt="Logo do IFeet">
     </header>
     <main class="d-flex w-100 h-100">
-      <form action="../assets/php/testalogin.php" method="post" class="form-signin w-100 px-4 m-auto needs-validation" novalidate>
+      <form action="../assets/php/verificalogin.php" method="post" class="form-signin w-100 px-4 m-auto needs-validation" novalidate>
 
         <h1 class="mb-5 fw-normal text-center">Entrar</h1>
 
@@ -83,7 +57,6 @@ if (isset($_POST['submit'])) {
     </main>
   </div>
   <script src="../assets/js/scripts.js"></script>
-  <script src="../assets/js/validation.js"></script>
 </body>
 
 </html>

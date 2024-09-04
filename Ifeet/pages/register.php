@@ -1,24 +1,29 @@
 <?php
 
-//conexao
+// Conexão
 include_once ('../assets/php/connection.php');
-
-
 
 if (isset($_POST['submit']) && ($_POST['password'] === $_POST['confirm-password'])) {
 
-  //salvando os dados em variaveis 
+  // Salvando os dados em variáveis 
   $email = $_POST['email'];
   $password = $_POST['password'];
   $name = $_POST['name'];
   $surname = $_POST['surname'];
   $confirmPassword = $_POST['confirm-password'];
-  //enviando para o BD
-  $resultado = mysqli_query($conexao, "INSERT INTO usuarios(email,senha,nome,sobrenome) VALUES ('$email','$password','$name','$surname')");
-  header('Location: home.php');
-}
 
+  // Hash da senha
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+  // Enviando para o BD
+  $resultado = mysqli_query($conexao, "INSERT INTO usuarios(email,senha,nome,sobrenome) VALUES ('$email','$hashed_password','$name','$surname')");
+
+  // Redirecionando para a página de login
+  header('Location: login.php');
+  exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

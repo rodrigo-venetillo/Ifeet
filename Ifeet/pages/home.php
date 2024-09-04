@@ -1,3 +1,19 @@
+<?php
+// Iniciar a sessão
+session_start();
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION['user_id'])) {
+    // Se não estiver logado, redirecionar para a página de login
+    header('Location: login.php');
+    exit();
+}
+?>
+
+<!-- Codigo acima deve ser posto em todas paginas que precise de protecao para sessao iniciada (o problema da url direta)-->
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,9 +43,9 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<body class="d-flex bg-dark m-0">
+<body class="d-flex bg-light m-0">
   <div
-    class="bg-light d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container gap-4 position-relative">
+    class=" d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container gap-4 position-relative">
 
     <header class="w-100 d-flex justify-content-center align-items-center pt-4 px-4">
       <img class="logo" src="../assets/images/logo.png" alt="Logo do IFeet">
