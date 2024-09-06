@@ -129,15 +129,15 @@ if (!isset($_SESSION['user_id'])) {
     </main>
 
     <section id="button-plus" class="w-100 h-auto my-2 d-flex align-items-start justify-content-around sticky-bottom">
-      <button class="d-flex align-items-center justify-content-center" onclick="window.location.href='registerTennis.html'">
+      <button class="d-flex align-items-center justify-content-center" onclick="window.location.href='registerTennis.php'">
         <i class="fa-solid fa-plus d-flex align-items-center justify-content-center"></i>
       </button>
     </section>
 
     <footer class="w-100 d-flex align-items-center justify-content-around gap-3 p-2">
-      <a href="home.html"><img src="../assets/images/shoe.svg" onload="SVGInject(this)" alt="" /></a>
-      <a href="chats.html"><img src="../assets/images/chat.svg" onload="SVGInject(this)" alt="" /></a>
-      <a href="configShoes.html"><img src="../assets/images/user.svg" onload="SVGInject(this)" alt="" /></a>
+      <a href="home.php"><img src="../assets/images/shoe.svg" onload="SVGInject(this)" alt="" /></a>
+      <a href="chats.php"><img src="../assets/images/chat.svg" onload="SVGInject(this)" alt="" /></a>
+      <a href="configShoes.php"><img src="../assets/images/user.svg" onload="SVGInject(this)" alt="" /></a>
     </footer>
   </div>
 
