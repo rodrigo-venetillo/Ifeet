@@ -6,7 +6,7 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     // Se não estiver logado, redirecionar para a página de login
     header('Location: login.php');
-    exit();
+    exit(); // Encerra o script após o redirecionamento para evitar a execução de código adicional
 }
 ?>
 
@@ -37,15 +37,59 @@ if (!isset($_SESSION['user_id'])) {
 
   <title>IFeet</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    /* Estilo para o círculo de foto de perfil */
+    .profile-container {
+      text-align: center;
+      margin-top: 20px; /* Espaçamento acima do círculo */
+    }
+
+    .profile-picture {
+      display: inline-block;
+      width: 120px; /* Aumentado o tamanho do círculo */
+      height: 120px; /* Aumentado o tamanho do círculo */
+      border-radius: 50%; /* Tornar a imagem circular */
+      overflow: hidden; /* Ocultar qualquer parte da imagem fora do círculo */
+      border: 3px solid #fff; /* Borda branca ao redor do círculo */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ao redor do círculo */
+      background: #f0f0f0; /* Cor de fundo caso a imagem não carregue */
+    }
+
+    .profile-picture img {
+      width: 100%; /* Ajusta a imagem para preencher o círculo */
+      height: 100%; /* Ajusta a imagem para preencher o círculo */
+      object-fit: cover; /* Mantém a proporção da imagem enquanto preenche o círculo */
+    }
+
+    .profile-name {
+      margin-top: 10px; /* Espaçamento entre o círculo e o nome */
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #333; /* Cor do texto do nome */
+    }
+
+    /* Estilo para o botão de adicionar */
+    #button-plus {
+      cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    }
+  </style>
 </head>
 
 <body class="d-flex bg-light m-0">
-  <div
-    class="d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container position-relative">
+  <div class="d-flex flex-column align-items-center justify-content-between m-auto my-0 px-2 div-container position-relative">
 
     <header class="w-100 d-flex justify-content-center align-items-center pt-4 px-4">
       <img class="logo" src="../assets/images/logo.png" alt="Logo do IFeet">
     </header>
+
+    <!-- Adicionando o espaço circular para a foto de perfil e nome -->
+    <div class="profile-container">
+      <div class="profile-picture">
+        <img src="https://via.placeholder.com/120" alt="Foto de Perfil">
+      </div>
+      <div class="profile-name">NOME</div>
+    </div>
 
     <main class="w-100 d-flex align-content-center justify-content-center overflow-x-auto h-100">
       <section class="container d-flex align-items-center justify-content-center">
@@ -80,24 +124,22 @@ if (!isset($_SESSION['user_id'])) {
               <p>Nike Air</p>
             </div>
           </div>
-          
         </div>
       </section>
     </main>
 
     <section id="button-plus" class="w-100 h-auto my-2 d-flex align-items-start justify-content-around sticky-bottom">
-      <button class="d-flex align-items-center justify-content-center">
+      <button class="d-flex align-items-center justify-content-center" onclick="window.location.href='registerTennis.html'">
         <i class="fa-solid fa-plus d-flex align-items-center justify-content-center"></i>
       </button>
     </section>
 
     <footer class="w-100 d-flex align-items-center justify-content-around gap-3 p-2">
-      <a href="home.php"><img src="../assets/images/shoe.svg" onload="SVGInject(this)" alt="" /></a>
-      <a href="chats.php"><img src="../assets/images/chat.svg" onload="SVGInject(this)" alt="" /></a>
-      <a href="configShoes.php"><img src="../assets/images/user.svg" onload="SVGInject(this)" alt="" /></a>
+      <a href="home.html"><img src="../assets/images/shoe.svg" onload="SVGInject(this)" alt="" /></a>
+      <a href="chats.html"><img src="../assets/images/chat.svg" onload="SVGInject(this)" alt="" /></a>
+      <a href="configShoes.html"><img src="../assets/images/user.svg" onload="SVGInject(this)" alt="" /></a>
     </footer>
   </div>
-
 
   <script src="../assets/js/drag.js"></script>
 
