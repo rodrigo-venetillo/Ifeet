@@ -1,3 +1,15 @@
+<?php
+// Iniciar a sessão
+session_start();
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION['user_id'])) {
+    // Se não estiver logado, redirecionar para a página de login
+    header('Location: login.php');
+    exit(); // Encerra o script após o redirecionamento para evitar a execução de código adicional
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -44,7 +56,7 @@
     <main class="w-100 d-flex align-items-center justify-content-center overflow-x-auto h-100">
       <div class="form-container">
         <h2 class="mb-4">Cadastrar Calçado</h2>
-        <form action="processar_cadastro.php" method="post" enctype="multipart/form-data">
+        <form action="../assets/php/newTennis.php" method="post" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="tamanho" class="form-label">Tamanho</label>
             <input type="text" class="form-control" id="tamanho" name="tamanho" required>
@@ -75,17 +87,11 @@
             <img id="fotoPreview" src="#" alt="Pré-visualização da Foto" style="display: none; margin-top: 10px;">
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary p-2">Cadastrar</button>
           </div>
         </form>
       </div>
     </main>
-
-    <section id="button-plus" class="w-100 h-auto my-2 d-flex align-items-start justify-content-around sticky-bottom">
-      <button class="d-flex align-items-center justify-content-center" onclick="window.location.href='registerTennis.php'">
-        <i class="fa-solid fa-plus d-flex align-items-center justify-content-center"></i>
-      </button>
-    </section>
 
     <footer class="w-100 d-flex align-items-center justify-content-around gap-3 p-2">
       <a href="home.php"><img src="../assets/images/shoe.svg" onload="SVGInject(this)" alt="" /></a>
