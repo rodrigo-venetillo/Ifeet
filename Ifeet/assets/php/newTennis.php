@@ -27,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $foto = $_FILES['foto'];
         $fotoTmpName = $foto['tmp_name'];
         $fotoName = basename($foto['name']);
-        $fotoPath = 'uploads/' . $fotoName; // Caminho para salvar a foto
+        $fotoPath = '../uploads/' . $fotoName; // Caminho atualizado para salvar a foto fora da pasta PHP
 
         // Criar diretório de uploads se não existir
-        if (!is_dir('uploads')) {
-            mkdir('uploads', 0755, true);
+        if (!is_dir('../uploads')) {
+            mkdir('../uploads', 0755, true); // Certifique-se de que o diretório está correto
         }
 
         // Mover o arquivo para o diretório de uploads
@@ -47,9 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':foto', $fotoPath);
             $stmt->execute();
 
-            // Redirecionar para a página de sucesso
+            // Redirecionar para a página de sucesso se o cadastro der certo
             header('Location: ../../pages/configShoes.php');
-            exit(); // Encerra o script após o redirecionamento
+            exit();
         } else {
             echo "Erro ao fazer upload da foto.";
         }
