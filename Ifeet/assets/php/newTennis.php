@@ -1,4 +1,7 @@
 <?php
+// Iniciar a sessão para ter acesso ao ID do usuário
+session_start();
+
 // Configurações de conexão com o banco de dados
 $host = 'localhost';
 $dbname = 'ifeet';
@@ -12,6 +15,12 @@ try {
 } catch (PDOException $e) {
     die("Erro ao conectar: " . $e->getMessage());
 }
+
+// Verificar se o usuário está logado e obter o ID do usuário
+if (!isset($_SESSION['user_id'])) {
+    die("Usuário não está logado.");
+}
+$userId = $_SESSION['user_id'];  // ID do usuário logado
 
 // Verificar se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -37,14 +46,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Mover o arquivo para o diretório de uploads
         if (move_uploaded_file($fotoTmpName, $fotoPath)) {
             // Preparar e executar a inserção no banco de dados
-            $sql = "INSERT INTO calcado (tamanho, cor, marca, condicao, preco, foto) VALUES (:tamanho, :cor, :marca, :condicao, :preco, :foto)";
+            $sql = "INSERT INTO calcado (tamanho, cor, marca, condicao, preco, foto, id_usuario) 
+                    VALUES (:tamanho, :cor, :marca, :condicao, :preco, :foto, :userId)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':tamanho', $tamanho);
             $stmt->bindParam(':cor', $cor);
             $stmt->bindParam(':marca', $marca);
             $stmt->bindParam(':condicao', $condicao);
             $stmt->bindParam(':preco', $preco);
-            $stmt->bindParam(':foto', $fotoPath);
+            $stmt->bindParam(':foto', $fotoName);
+            $stmt->bindParam(':userId', $userId); // Associar o ID do usuário ao calçado
             $stmt->execute();
 
             // Redirecionar para a página de sucesso se o cadastro der certo

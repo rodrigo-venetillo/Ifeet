@@ -4,10 +4,33 @@ session_start();
 
 // Verificar se o usuário está logado
 if (!isset($_SESSION['user_id'])) {
-    // Se não estiver logado, redirecionar para a página de login
-    header('Location: login.php');
-    exit(); // Encerra o script após o redirecionamento para evitar a execução de código adicional
+  // Se não estiver logado, redirecionar para a página de login
+  header('Location: login.php');
+  exit();
 }
+
+// Conectar ao banco de dados
+$host = 'localhost';
+$dbname = 'ifeet';
+$user = 'root';
+$pass = '';
+
+try {
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  die("Erro ao conectar: " . $e->getMessage());
+}
+
+// Obter o ID do usuário logado
+$userId = $_SESSION['user_id'];
+
+// Buscar os tênis cadastrados pelo usuário logado
+$sql = "SELECT * FROM calcado WHERE id_usuario = :userId";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+$stmt->execute();
+$tenis = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -16,21 +39,15 @@ if (!isset($_SESSION['user_id'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-  <!-- Definindo orientação de tela para iOS -->
   <meta name="apple-mobile-web-app-orientation" content="portrait">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <!-- font awesome  -->
   <script src="https://kit.fontawesome.com/dc951fd168.js" crossorigin="anonymous"></script>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer>
-  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" defer></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   <script src="../assets/js/svg-inject.min.js"></script>
@@ -39,39 +56,37 @@ if (!isset($_SESSION['user_id'])) {
   <link rel="stylesheet" href="../assets/css/style.css">
 
   <style>
-    /* Estilo para o círculo de foto de perfil */
     .profile-container {
       text-align: center;
-      margin-top: 20px; /* Espaçamento acima do círculo */
+      margin-top: 20px;
     }
 
     .profile-picture {
       display: inline-block;
-      width: 120px; /* Aumentado o tamanho do círculo */
-      height: 120px; /* Aumentado o tamanho do círculo */
-      border-radius: 50%; /* Tornar a imagem circular */
-      overflow: hidden; /* Ocultar qualquer parte da imagem fora do círculo */
-      border: 3px solid #fff; /* Borda branca ao redor do círculo */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ao redor do círculo */
-      background: #f0f0f0; /* Cor de fundo caso a imagem não carregue */
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background: #f0f0f0;
     }
 
     .profile-picture img {
-      width: 100%; /* Ajusta a imagem para preencher o círculo */
-      height: 100%; /* Ajusta a imagem para preencher o círculo */
-      object-fit: cover; /* Mantém a proporção da imagem enquanto preenche o círculo */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .profile-name {
-      margin-top: 10px; /* Espaçamento entre o círculo e o nome */
+      margin-top: 10px;
       font-size: 1.2rem;
       font-weight: 500;
-      color: #333; /* Cor do texto do nome */
+      color: #333;
     }
 
-    /* Estilo para o botão de adicionar */
     #button-plus {
-      cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+      cursor: pointer;
     }
   </style>
 </head>
@@ -83,7 +98,7 @@ if (!isset($_SESSION['user_id'])) {
       <img class="logo" src="../assets/images/logo.png" alt="Logo do IFeet">
     </header>
 
-    <!-- Adicionando o espaço circular para a foto de perfil e nome -->
+    <!-- Espaço para a foto de perfil e nome -->
     <div class="profile-container">
       <div class="profile-picture">
         <img src="https://via.placeholder.com/120" alt="Foto de Perfil">
@@ -93,38 +108,23 @@ if (!isset($_SESSION['user_id'])) {
 
     <main class="w-100 d-flex align-content-center justify-content-center overflow-x-auto h-100">
       <section class="container d-flex align-items-center justify-content-center">
-        <div class="row">
-          <div class="col-4">
-            <div class="item">
-              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
-              <p>Nike Air</p>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="item">
-              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
-              <p>Nike Air</p>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="item">
-              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
-              <p>Nike Air</p>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="item">
-              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
-              <p>Nike Air</p>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="item">
-              <div><img src="https://acdn.mitiendanube.com/stores/001/326/998/products/whatsapp-image-2023-11-24-at-08-55-42-a9258a74b5ddd854f617021274585169-1024-1024.webp" alt=""></div>
-              <p>Nike Air</p>
-            </div>
-          </div>
+        <div class="row w-100">
+          <?php if (!empty($tenis)): ?>
+            <?php foreach ($tenis as $item): ?>
+              <div class="col-12 col-md-4 mb-4">
+                <div class="item">
+                  <div>
+                    <img src="<?php echo '../assets/uploads/' . htmlspecialchars($item['foto']); ?>" alt="Tênis" class="img-fluid">
+                  </div>
+                  <p><?php echo htmlspecialchars($item['marca']); ?></p>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <p>Você ainda não cadastrou nenhum tênis.</p>
+          <?php endif; ?>
         </div>
+
       </section>
     </main>
 

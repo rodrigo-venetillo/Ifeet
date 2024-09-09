@@ -84,7 +84,9 @@ if (!isset($_SESSION['user_id'])) {
           <div class="mb-3">
             <label for="foto" class="form-label">Foto do Calçado</label>
             <input type="file" class="form-control" id="foto" name="foto" accept="image/*" required>
-            <img id="fotoPreview" src="#" alt="Pré-visualização da Foto" style="display: none; margin-top: 10px;">
+            <div class="d-flex align-items-center justify-content-center">
+              <img id="fotoPreview" src="#" alt="Pré-visualização da Foto" style="display: none; margin-top: 10px;">
+            </div>
           </div>
           <div class="form-actions">
             <button type="submit" class="btn btn-primary p-2">Cadastrar</button>
